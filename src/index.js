@@ -6,6 +6,8 @@ import './Anti Design/Style.css'
 
 render(
     <Appantd/>,
+
     document.getElementById("root")
+            
 
 )

@@ -1,41 +1,35 @@
-import {React, } from "react";
-import 'antd/dist/reset.css';
-import { Button,Input, Select } from 'antd';
-
-import {UserOutlined } from '@ant-design/icons';
-
+import {React, useEffect, useState, } from "react";
+import { Result, Table } from 'antd';
+import axios from 'axios';
 const Appantd = () => {
+    const [columns,setColumns] = useState([]);
+    const [dataSource,setDataSource] = useState([]);
+    useEffect(()=>{
+        fetch('https://dummyjson.com/quotes')
+        .then(res => res.json())
+        .then((result)=>{
+        const list = result.quotes || []
+        const firsObject = list[0] || {}
+        const cols = []
+        for (const key in firsObject) {
+            const col = {
+                title: key,
+                dataIndex: key
+            }
+            cols.push(col)
+            
+        }
+        setColumns(cols)
+        setDataSource(result.quotes)
+      })
 
-    //button
-    const onButtonClick=(e) =>{
-        console.log("Button Clicked");
-    }
-
-    //Select
-    const subjects = ["React,Java, Communication Skills, Telecommunication, Computer Organization Architecture, Research Methodology"];
-
+    },[])
+    
     return (
-       <div className="App">
+        <div>
+         <Table dataSource={dataSource} columns={columns} />
+        </div>
        
-       <Input className = "inputname" 
-       placeholder="Please Enter Your Name" 
-       prefix = {<UserOutlined />}
-       allowClear
-       />
-      <p>Please Select Your Favorate Subject</p> 
-
-       <select  placeholder = "Select Subject"  style = {{fontColor:"black"}}className = "select"  >
-        {subjects.map((subject,index) => {
-            return <Select.Option key = {index} vlue = {subject}>{subject}</Select.Option>
-        })}
-       </select>
-       
-        <Button type = "primary" onClick={onButtonClick} >    Primary Button
-        </Button>
-        <p> Hello GitHub</p>
-      
-
-       </div>
     )
 }
 export default Appantd;
