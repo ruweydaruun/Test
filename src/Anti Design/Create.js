@@ -32,12 +32,7 @@ function Create() {
             <div className='row'>
                 <div className='col-md-4'>
             
-                    {/*
-                    <div className='mb-2 mt-2'>
-                        <Link to='/'>
-                            <button className='btn btn-primary'>Read Data</button>
-                        </Link>
-                    </div>*/}
+                    
                     <div className='bg-primary p-4 text-center'>
                         <h1>Create Data</h1>
                     </div>
@@ -70,7 +65,7 @@ function Create() {
                         </div>
                         <br />  
                         <div className='d-grid'>
-                            <input type='submit' value='Submit' className='btn btn-primary' />
+                            <input type='submit' value='Submit' className='btn btn-primary'/>
                         </div>
                     </form>
 
