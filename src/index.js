@@ -1,13 +1,22 @@
 import {render} from 'react-dom';
-import Appantd from './Anti Design/Appantd.js';
 import './Anti Design/Style.css'
-
+//import FormValidation from './Anti Design/GetAxios';
+//import PostForm from './Anti Design/PostForm.js';
+import ReadTable from './Anti Design/ReadTable';
 //import App from'./App.js';
 
-render(
-    <Appantd/>,
 
+
+
+
+render(
+    <ReadTable/>,
+    //<PostForm/>,
+    //<FormValidation/>,
+    //<App/>,
+   
     document.getElementById("root")
             
 
 )
+

@@ -1,14 +1,14 @@
 import {React, useEffect, useState, } from "react";
 import { Result, Table } from 'antd';
 import axios from 'axios';
-const Appantd = () => {
+const ReadTable = () => {
     const [columns,setColumns] = useState([]);
     const [dataSource,setDataSource] = useState([]);
     useEffect(()=>{
-        fetch('https://dummyjson.com/quotes')
+        fetch("https://dummyjson.com/posts")
         .then(res => res.json())
         .then((result)=>{
-        const list = result.quotes || []
+        const list = result.posts || []
         const firsObject = list[0] || {}
         const cols = []
         for (const key in firsObject) {
@@ -20,7 +20,7 @@ const Appantd = () => {
             
         }
         setColumns(cols)
-        setDataSource(result.quotes)
+        setDataSource(result.posts)
       })
 
     },[])
@@ -32,4 +32,4 @@ const Appantd = () => {
        
     )
 }
-export default Appantd;
+export default ReadTable;
